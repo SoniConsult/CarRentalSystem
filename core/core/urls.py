@@ -6,10 +6,9 @@ from home.serializers import RegisterSerializer,LoginSerializer,CarSerializer
 from home.models import Car
 from rest_framework.views import APIView
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
-from rest_framework.authentication import TokenAuthentication,BasicAuthentication
+from rest_framework.authentication import TokenAuthentication
 
 
 
@@ -115,9 +114,9 @@ class CarDeleteAPI(APIView):
 urlpatterns = [
     path('api/register/',RegisterAPI.as_view(),name='register'),
     path('api/login/',LoginAPI.as_view(),name='login'),
-    path('api/addCar/', AddCarAPI.as_view()),
+    path('api/addCar/', AddCarAPI.as_view(),name='addCar'),
+    path('api/car/<int:car_id>/', CarDetailAPI.as_view(),name='car-detail'),
+    path('api/car/update/<int:car_id>/', CarUpdateAPI.as_view(),name='car-update'),
+    path('api/car/delete/<int:car_id>/', CarDeleteAPI.as_view(),name='car-delete'),
     path('admin/', admin.site.urls),
-    path('api/car/<int:car_id>/', CarDetailAPI.as_view()),
-    path('api/car/update/<int:car_id>/', CarUpdateAPI.as_view()),
-    path('api/car/delete/<int:car_id>/', CarDeleteAPI.as_view()),
  ]
