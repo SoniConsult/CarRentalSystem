@@ -113,8 +113,8 @@ class CarDeleteAPI(APIView):
         return Response({"message": "Car deleted successfully"})
 
 urlpatterns = [
-    path('api/register/',RegisterAPI.as_view()),
-    path('api/login/',LoginAPI.as_view()),
+    path('api/register/',RegisterAPI.as_view(),name='register'),
+    path('api/login/',LoginAPI.as_view(),name='login'),
     path('api/addCar/', AddCarAPI.as_view()),
     path('admin/', admin.site.urls),
     path('api/car/<int:car_id>/', CarDetailAPI.as_view()),
