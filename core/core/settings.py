@@ -79,10 +79,19 @@ WSGI_APPLICATION = 'core.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.sqlite3',
+    #     'NAME': BASE_DIR / 'db.sqlite3',
+    # }
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.mysql',  # MySQL engine
+        'NAME': 'CarRentalSystem',
+        'USER': 'root',         # MySQL username
+        'PASSWORD': 'soni@123', # MySQL password
+        'HOST': 'localhost',                  # Host (use '127.0.0.1' for local machine)
+        'PORT': '3306',                       # Default MySQL port
     }
+
 }
 
 

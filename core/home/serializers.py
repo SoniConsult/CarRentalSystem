@@ -40,20 +40,3 @@ class CarSerializer(serializers.ModelSerializer):
         model = Car
         fields = ['model', 'year', 'registration_number', 'seating_capacity']  
 
-
-# class ColorSerializer(serializers.ModelSerializer):
-#     class Meta:
-#         model=Color
-#         fields=['color_name']
-# class PersonSerializer(serializers.ModelSerializer): 
-#     color=ColorSerializer()
-#     country=serializers.SerializerMethodField()
-#     class Meta:
-#         model = Person  # Correctly specify the model
-#         fields = '__all__'  # Ensure 'fields' is used (not 'field')
-#     def get_country(self,obj):
-#         return "India"
-#     def validate(self,data):
-#         if data['age'] < 18:
-#             raise serializers.ValidationError('Person must be at least 18 years old')
-#         return data
